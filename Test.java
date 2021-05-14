@@ -1,3 +1,4 @@
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.security.*;
@@ -125,11 +126,11 @@ public class Test {
         boolean isCorrect = Arrays.equals(decryptedMessageHash, newMessageHash);
         System.out.println("Is decrypted message and the file content equal?\n"+isCorrect+"\n");
         // m
-        System.out.println("File content"+new String(messageBytes,0)+"\n");
+        System.out.println("File content\n"+new String(messageBytes, StandardCharsets.UTF_8)+"\n");
         // h(m)
-        System.out.println("\nH(m)\n"+Arrays.toString(messageHash));
+        System.out.println("\nH(m)\n"+DatatypeConverter.printHexBinary(messageHash));
         // digital signature
-      //  System.out.println(Arrays.toString(digitalSignature));
+        System.out.println(DatatypeConverter.printHexBinary(digitalSignature));
 
     }
 }
