@@ -14,7 +14,7 @@ public class q4 {
         return iv;
     }
 
-	public static void encryptionDecryptionwithAesCbc(SecretKey key) throws Exception
+	public static void encryptionDecryptionWithAesCbc(SecretKey key) throws Exception
 	{
         byte[] iv = generateIv();
         IvParameterSpec ivParameterSpec = new IvParameterSpec(iv);
@@ -51,7 +51,7 @@ public class q4 {
 		e.printStackTrace();
 		}
 	}
-	public static void encryptionDecryptionwithAesCTR(SecretKey key) throws Exception
+	public static void encryptionDecryptionWithAesCTR(SecretKey key) throws Exception
 	{
 
 		SecureRandom secureRandom = new SecureRandom();
@@ -97,25 +97,25 @@ public class q4 {
 	{
 		try
 		{
-			encryptionDecryptionwithAesCbc(key);
+			encryptionDecryptionWithAesCbc(key);
 
 		}catch(Exception e)
 		{
 			e.printStackTrace();
 		}
-		System.out.println("bitti CBC");
+		System.out.println("CBC finished.");
 
 	}
 	public void actionCTR(SecretKey key){
 
 		try
 		{
-			encryptionDecryptionwithAesCTR(key);
+			encryptionDecryptionWithAesCTR(key);
 
 		}catch(Exception e)
 		{
 			e.printStackTrace();
 		}
-		System.out.println("bitti CTR");
+		System.out.println("CTR finished.");
 	}
 }

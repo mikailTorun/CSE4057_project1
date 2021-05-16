@@ -23,18 +23,7 @@ public class Test {
 
         messageDigest();
 
-
-
-
-
-
-        // --------- Q4 -------------//
-        q4 q4 = new q4();
-        q4.actionCBC(SymmetricKey_128);
-        q4.actionCBC(SymmetricKey_256);
-
-        q4.actionCTR(SymmetricKey_256);
-
+        question4(SymmetricKey_128,SymmetricKey_256);
 
     }
     // ***************************** QUESTION-1 *****************************************
@@ -144,7 +133,45 @@ public class Test {
         // h(m)
         System.out.println("\nH(m)\n"+DatatypeConverter.printHexBinary(messageHash));
         // digital signature
-        System.out.println(DatatypeConverter.printHexBinary(digitalSignature));
+        System.out.println("\nDigital Signature\n"+DatatypeConverter.printHexBinary(digitalSignature)+"\n");
 
+    }
+    // ***************************** QUESTION-4 *****************************************
+    // In that question, we create a new java file and import it to the project.
+    // After the import, we create an instance and we print some information about the process.
+    // Encrypted file is an image file.
+    public static void question4(SecretKey key1,SecretKey key2){
+        q4 q4 = new q4();
+        long EncryptionStartTime;
+        long EncryptionEndTime;
+        long totalTime;
+        System.out.println("------------------------- Question-4 -------------------------");
+
+
+        // 128 bit CBC
+        System.out.println("\n-- Key Size: 128 bit / Mode: CBC --");
+        EncryptionStartTime = System.nanoTime();
+        q4.actionCBC(key1);
+        EncryptionEndTime   = System.nanoTime();
+        totalTime = EncryptionEndTime - EncryptionStartTime;
+        System.out.println("Total time elapsed in nano seconds: "+totalTime);
+
+
+        // 256 bit CBC
+        System.out.println("\n-- Key Size: 256 bit / Mode: CBC --");
+        EncryptionStartTime = System.nanoTime();
+        q4.actionCBC(key2);
+        EncryptionEndTime   = System.nanoTime();
+        totalTime = EncryptionEndTime - EncryptionStartTime;
+        System.out.println("Total time elapsed in nano seconds: "+totalTime);
+
+
+        // 256 bit CTR
+        System.out.println("\n-- Key Size: 256 bit / Mode: CTR --");
+        EncryptionStartTime = System.nanoTime();
+        q4.actionCTR(key2);
+        EncryptionEndTime   = System.nanoTime();
+        totalTime = EncryptionEndTime - EncryptionStartTime;
+        System.out.println("Total time elapsed in nano seconds: "+totalTime);
     }
 }
