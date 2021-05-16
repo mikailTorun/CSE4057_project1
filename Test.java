@@ -22,6 +22,20 @@ public class Test {
         encryptAndDecrypt(SymmetricKey_256,"SymmetricKey_256");
 
         messageDigest();
+
+
+
+
+
+
+        // --------- Q4 -------------//
+        q4 q4 = new q4();
+        q4.actionCBC(SymmetricKey_128);
+        q4.actionCBC(SymmetricKey_256);
+
+        q4.actionCTR(SymmetricKey_256);
+
+
     }
     // ***************************** QUESTION-1 *****************************************
     // KEY PAIR GENERATOR FUNCTION
